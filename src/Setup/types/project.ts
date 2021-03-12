@@ -26,7 +26,7 @@ export interface project_project {
 }
 
 export interface project {
-  project: project_project | null;
+  project: project_project;
 }
 
 export interface setup {

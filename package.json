@@ -5,6 +5,7 @@
   "scripts": {
     "start": "BROWSERSLIST_DANGEROUS_EXTEND=1 react-scripts start",
     "build": "BROWSERSLIST_DANGEROUS_EXTEND=1 react-scripts build",
+    "test": "react-scripts test",
     "lint": "eslint \"src/**\"",
     "build:types": "npx apollo codegen:generate --localSchemaFile=src/api/schema.graphql --target=typescript --globalTypesFile=src/globalTypes/index.ts --includes=src/**/*.ts --tagName=gql --addTypename types"
   },
@@ -22,6 +23,8 @@
     "@apollo/client": "^3.3.11",
     "@graphql-tools/schema": "^7.1.3",
     "@habx/ui-core": "^5.22.0",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
     "final-form": "^4.20.2",
     "graphql": "^15.5.0",
     "graphql-tag": "^2.11.0",
