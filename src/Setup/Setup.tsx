@@ -29,16 +29,10 @@ const Setup = () => {
 
   const [upsertSetup] = useMutation<setup>(setupMutation, {
     variables: {
-      project: {
-        id: projectResponse?.data?.project?.id,
-        name: projectResponse?.data?.project?.name,
-        properties: {
-          budget: budget,
-          surface: surface,
-          exposures: exposure,
-          typology: Number(typology[0]),
-        },
-      },
+      budget: budget,
+      surface: surface,
+      exposures: exposure,
+      typology: Number(typology[0]),
     },
   })
 
@@ -51,8 +45,6 @@ const Setup = () => {
   }
 
   function handleTypologyChange(event: number) {
-    // eslint-disable-next-line no-console
-    console.log('event', event)
     setTypology(event === 1 ? `${event} pièce` : `${event} pièces`)
   }
 
@@ -63,12 +55,6 @@ const Setup = () => {
       exposure.splice(exposure.indexOf(event), 1)
       setExposure([...exposure])
     }
-  }
-
-  const onSubmit = () => {
-    upsertSetup()
-    // eslint-disable-next-line no-console
-    console.log('clicked', Number(typology[0]))
   }
 
   // const typologyArr = projectResponse?.data?.project?.properties?.typologies?.map(
@@ -85,9 +71,9 @@ const Setup = () => {
   // console.log('exposureArr', exposureArr)
   return (
     <SetupContainer>
-      <Title type="header">{projectResponse?.data?.project?.name}</Title>
+      <Title type="header">{projectResponse.data?.project?.name}</Title>
       <br />
-      <form onSubmit={onSubmit}>
+      <form onSubmit={() => upsertSetup()}>
         <Card spacing="narrow" id="card">
           <div>
             <Text>Vos critères</Text>
@@ -193,7 +179,7 @@ const Setup = () => {
                   )}
                 </datalist> */}
           </div>
-          <Button onClick={onSubmit}>Valider</Button>
+          <Button onClick={() => upsertSetup()}>Valider</Button>
         </Card>
       </form>
     </SetupContainer>

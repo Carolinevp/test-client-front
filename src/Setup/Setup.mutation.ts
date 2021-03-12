@@ -1,18 +1,19 @@
 import gql from 'graphql-tag'
 
 export const setupMutation = gql`
-  mutation upsertSetup($setup: SetupInput!) {
-    upsertSetup(setup: $setup) {
-      project {
-        id
-        name
-        properties {
-          priceRange
-          surfaceRange
-          exposures
-          typologies
-        }
+  mutation upsertSetup(
+    $budget: Int!
+    $surface: Int!
+    $exposures: [String]!
+    $typology: Int!
+  ) {
+    upsertSetup(
+      setup: {
+        budget: $budget
+        surface: $surface
+        exposures: $exposures
+        typology: $typology
       }
-    }
+    )
   }
 `
