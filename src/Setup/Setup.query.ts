@@ -5,6 +5,18 @@ export const projectQuery = gql`
     project {
       id
       name
+      properties {
+        priceRange {
+          min
+          max
+        }
+        surfaceRange {
+          min
+          max
+        }
+        exposures
+        typologies
+      }
     }
   }
 `

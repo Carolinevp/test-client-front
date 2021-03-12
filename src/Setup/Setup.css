@@ -1,0 +1,19 @@
+.input {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2% 0 2% 0;
+}
+
+.text-input {
+  margin-bottom: 5%;
+  width: 95.5%;
+}
+
+.select-input {
+  margin-bottom: 5%;
+}
+
+#card {
+  width: 40%;
+}

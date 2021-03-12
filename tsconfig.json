@@ -1,7 +1,8 @@
 {
   "extends": "@habx/config-ci-front/typescript/client.json",
   "compilerOptions": {
-    "strict": false
+    "strict": true,
+    "jsx": "react-jsx"
   },
   "include": [
     "src"
